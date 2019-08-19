@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script th:inline="javascript">
+        function showAlert(name)
+        {
+            alert("你好：" + name + " " + [[${welcomeText}]]);
+        }
+    </script>
+    <style th:inline="css">
+        .[[${classname}]]
+        {
+            text-align: [[${align}]];
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript内联</h1>
+    <input type="button" value="JavaScript内联" onclick="showAlert('LiLei')" />
+    <br />
+    <br />
+    <div th:inline="text">
+        <h1>文本内联</h1>
+        <ul>
+            <li>[[${textInline1}]]</li>
+            <li>[[${textInline2}]]</li>
+            <li>[[${textInline3}]]</li>
+        </ul>
+    </div>
+    <br />
+    <br />
+    <div th:inline="none">
+        <h1>禁用内联</h1>
+        [[${welcomeText}]]
+    </div>
+    <br />
+    <br />
+    <div>
+        <h1>CSS内联</h1>
+        <span class="spanTextClass" style="display: block; background-color: darkgrey;">测试文字</span>
+    </div>
+</body>
+</html>

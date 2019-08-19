@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>内嵌变量</h1>
+
+    <span>格式化时间</span>
+    <p th:text="${#dates.format(date, 'yyyy-MM-dd HH:mm:ss')}"></p>
+    <br />
+
+    <span>创建当前时间 精确到天</span>
+    <p th:text="${#dates.createToday()}"></p>
+    <br />
+
+    <span>创建当前时间 精确到秒</span>
+    <p th:text="${#dates.createNow()}"></p>
+    <br />
+
+    <span>判断是否为空</span>
+    <p th:text="${#strings.isEmpty(userName)}"></p>
+    <br />
+
+    <span>判断 list 中每个元素是否为空</span>
+    <p th:text="${#strings.listIsEmpty(users)}"></p>
+    <br />
+
+    <span>输出字符串长度</span>
+    <p th:text="${#strings.length(userName)}"></p>
+    <br />
+
+    <span>拼接字符串</span>
+    <p th:text="${#strings.concat(userName,userName,userName)}"></p>
+    <br />
+
+    <span>创建自定长度的字符串</span>
+    <p th:text="${#strings.randomAlphanumeric(count)}"></p>
+    <br />
+    <p th:text="#{siteInfo.siteName}"></p>
+</body>
+</html>
