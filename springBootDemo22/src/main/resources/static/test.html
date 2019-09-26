@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SpringBoot WebSocket Test</title>
+    <script src="jquery-3.3.1.slim.min.js" ></script>
+    <script type="text/javascript">
+        $(document).ready(function()
+        {
+            var urlPrefix ='ws://localhost:8080/msg/';
+            var ws = null;
+            $('#btnConnect').click(function()
+            {
+                if(ws == null)
+                {
+                    var url = urlPrefix;
+                    ws = new WebSocket(url);
+                    ws.onopen = function () {
+                        // 与服务端建立连接事件
+                        console.log("建立WebSocket连接成功！");
+                    };
+                    ws.onmessage = function (event) {
+                        // 收到服务端消息事件
+                        $('#msgReceive').append(event.data + '\n');
+                    };
+                    ws.onclose = function () {
+                        // 服务端断开连接事件
+                        $('#msgReceive').append("已断开WebSocket连接！\n");
+                    }
+                }
+            });
+
+            // 向服务端发送消息
+            $('#btnSendMsg').click(function()
+            {
+                var msg = $('#message').val();
+                if(msg=='')
+                {
+                    alert("请填写消息！");
+                    return;
+                }
+                if(ws && msg!='')
+                {
+                    ws.send(msg);
+                }
+            });
+
+            // 通知服务端关闭连接
+            $('#btnClose').click(function()
+            {
+                if(ws)
+                {
+                    ws.close();
+                    ws = null;
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+    连接控制：<button id="btnConnect">建立连接</button>
+    <button id="btnClose">断开连接</button></br>
+    消息内容：<input id="message" value="" />
+    <button id="btnSendMsg">发送</button>
+    </br></br>
+    服务器应答：</br>
+    <textarea id="msgReceive" readonly="readonly" cols="50" rows="20"></textarea>
+
+</body>
+</html>
