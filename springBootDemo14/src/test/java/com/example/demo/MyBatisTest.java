@@ -18,7 +18,7 @@ import javax.annotation.Resource;
 public class MyBatisTest
 {
     @Resource
-    EmployeeMapper employeeMapper;
+    private EmployeeMapper employeeMapper;
 
     @Test
     public void TestInsert()
