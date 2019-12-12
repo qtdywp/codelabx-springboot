@@ -11,6 +11,7 @@ import javax.jms.Topic;
 public class Producer
 {
     @Autowired
+    // JmsMessagingTemplate是Spring提供发送消息的工具类
     private JmsMessagingTemplate jmsMessagingTemplate;
 
     @Autowired
@@ -21,13 +22,13 @@ public class Producer
 
     public void sendQueue(String msg)
     {
-        System.out.println("send queue msg :" + msg);
+        System.out.println("Send queue msg :" + msg);
         this.jmsMessagingTemplate.convertAndSend(this.queue, msg);
     }
 
     public void sendTopic(String msg)
     {
-        System.out.println("send topic msg :" + msg);
+        System.out.println("Send topic msg :" + msg);
         this.jmsMessagingTemplate.convertAndSend(this.topic, msg);
     }
 }

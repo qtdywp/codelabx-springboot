@@ -20,6 +20,7 @@ class ActiveMqTests
     @Test
     void sendQueueMessage(CapturedOutput output) throws InterruptedException
     {
+        // 测试一对一发送消息(队列模式)
         this.producer.sendQueue("Test queue message");
         Thread.sleep(1000L);
         assertThat(output).contains("Test queue");
@@ -28,6 +29,7 @@ class ActiveMqTests
     @Test
     void sendQueueMessage2()
     {
+        // 测试一对一批量发送消息(队列模式)
         for (int i = 0; i < 100; i++)
         {
             this.producer.sendQueue("Test queue message" + i);
@@ -37,6 +39,7 @@ class ActiveMqTests
     @Test
     void sendTopicMessage()
     {
+        // 测试群发送消息(广播模式)
         this.producer.sendTopic("Test Topic message");
     }
 }
