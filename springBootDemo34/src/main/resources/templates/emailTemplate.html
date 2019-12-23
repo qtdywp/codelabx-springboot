@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+    您好,欢迎来到CodelabX，请点击下面的链接完成邮箱验证。<br/>
+    <a href="#" th:href="@{ http://www.codelabx.com/register/mailCheck/{checkCode}(checkCode=${checkCode}) }">激活账号</a>
+</body>
+</html>
