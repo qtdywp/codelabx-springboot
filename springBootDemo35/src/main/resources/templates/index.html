@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+    <p><a th:href="@{/login}" target="_blank">登录</a></p>
+    <h1>Hello！</h1>
+    <p>Welcome to CodelabX!</p>
+    <p>进入<a th:href="@{/content}">content页面</a>（仅限ADMIN与USER权限）</p>
+    <p>进入<a th:href="@{/admin}">admin页面</a>（仅限ADMIN权限）</p>
+    <p>进入<a th:href="@{/edit}">edit页面</a>（仅限ADMIN权限）</p>
+    <p>进入<a th:href="@{/update}">update路径</a>（仅限ADMIN权限）</p>
+</body>
+</html>
