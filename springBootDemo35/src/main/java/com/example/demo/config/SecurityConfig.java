@@ -44,5 +44,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 .password(new BCryptPasswordEncoder().encode("123456"))
                 .roles("ADMIN", "USER");
     }
-
 }

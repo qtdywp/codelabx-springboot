@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Boot Actuator</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/bootstrap/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/bootstrap/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="/bootstrap/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="/bootstrap/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+    <p>Endpoints清单</p>
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th>方法</th>
+                <th>路径</th>
+                <th>描述</th>
+                <th>查看路径</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>GET</td>
+                <td>/auditevents</td>
+                <td>显示应用暴露的审计事件（如认证进入、订单失败）</td>
+                <td><a href="/actuator/auditevents" target="_blank">/actuator/auditevents</a></td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/beans</td>
+                <td>描述应用程序上下文里全部的 Bean 以及它们的关系</td>
+                <td><a href="/actuator/beans" target="_blank">/actuator/beans</a></td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/conditions</td>
+                <td>就是1.0的/autoconfig，提供一份自动配置生效的条件情况，记录哪些自动配置条件通过了，哪些没通过</td>
+                <td><a href="/actuator/conditions" target="_blank">/actuator/conditions</a></td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/configprops</td>
+                <td>描述配置属性（包含默认值）如何注入 Bean</td>
+                <td><a href="/actuator/configprops" target="_blank">/actuator/configprops</a></td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/env</td>
+                <td>获取全部环境属性</td>
+                <td><a href="/actuator/env" target="_blank">/actuator/env</a></td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/env/{name}</td>
+                <td>根据名称获取特定的环境属性值</td>
+                <td><a href="/actuator/env/{name}" target="_blank">/actuator/env/java.vm.version</a></td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/flyway</td>
+                <td>提供一份 Flyway 数据库迁移信息</td>
+                <td><a href="/actuator/flyway" target="_blank">/actuator/flyway</a></td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/health</td>
+                <td>报告应用程序的健康指标，这些值由HealthIndicator的实现类提供</td>
+                <td><a href="/actuator/health" target="_blank">/actuator/health</a></td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/httptrace</td>
+                <td>显示 HTTP 足迹，最近 100 个 HTTP request/repsponse</td>
+                <td><a href="/actuator/httptrace" target="_blank">/actuator/httptrace</a></td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/info</td>
+                <td>获取应用程序的定制信息，这些信息由 info 打头的属性提供</td>
+                <td><a href="/actuator/info" target="_blank">/actuator/info</a></td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/loggers</td>
+                <td>显示和修改配置的 loggers</td>
+                <td><a href="/actuator/loggers" target="_blank">/actuator/loggers</a></td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/liquidbase</td>
+                <td>显示 Liquibase 数据库迁移的纤细信息</td>
+                <td><a href="/actuator/liquidbase" target="_blank">/actuator/liquidbase</a></td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/metrics</td>
+                <td>报告各种应用程序度量信息，比如内存用量和 HTTP 请求计数</td>
+                <td><a href="/actuator/metrics" target="_blank">/actuator/metrics</a></td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/metrics/{name}</td>
+                <td>报告指定名称的应用程序度量值</td>
+                <td><a href="/actuator/metrics/{name}" target="_blank">/actuator/metrics/mem.free</a></td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/mappings</td>
+                <td>描述全部的 URI 路径，以及它们和控制器（包含 Actuator 端点）的映射关系</td>
+                <td><a href="/actuator/mappings" target="_blank">/actuator/mappings</a></td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/scheduledtasks</td>
+                <td>展示应用中的定时任务信息</td>
+                <td><a href="/actuator/scheduledtasks" target="_blank">/actuator/scheduledtasks</a></td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/sessions</td>
+                <td>如果我们使用了 Spring Session 展示应用中的 HTTP Sessions 信息</td>
+                <td><a href="/actuator/sessions" target="_blank">/actuator/sessions</a></td>
+            </tr>
+            <tr>
+                <td>POST</td>
+                <td>/shutdown</td>
+                <td>关闭应用程序，要求 endpoints.shutdown.enabled 设置为 true</td>
+                <td>curl -X POST "http://localhost:8080/actuator/shutdown"</td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/threaddump</td>
+                <td>获取线程活动的快照</td>
+                <td><a href="/actuator/threaddump" target="_blank">/actuator/threaddump</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <p>如果您的应用程序是web应用程序（Spring MVC、Spring WebFlux或Jersey），则可以使用以下Endpoints：</p>
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th>方法</th>
+                <th>路径</th>
+                <th>描述</th>
+                <th>查看路径</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>GET</td>
+                <td>/heapdump</td>
+                <td>dump一份应用的JVM堆信息</td>
+                <td><a href="/actuator/heapdump" target="_blank">/actuator/heapdump</a></td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/jolokia</td>
+                <td>展示JMX beans（仅当Jolokia配置到classpath的情况下可用。不可用于WebFlux）</td>
+                <td><a href="/actuator/jolokia" target="_blank">/actuator/jolokia</a></td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/logfile</td>
+                <td>返回 log file 中的内容（如果 logging.file 或者 logging.path 被设置</td>
+                <td><a href="/actuator/logfile" target="_blank">/actuator/logfile</a></td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/prometheus</td>
+                <td>Exposes metrics in a format that can be scraped by a Prometheus server.</td>
+                <td><a href="/actuator/prometheus" target="_blank">/actuator/prometheus</a></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
