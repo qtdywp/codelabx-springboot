@@ -93,7 +93,6 @@ public class BaseResult<T>
         this.data = data;
     }
 
-
     public static class ResponseParam
     {
         private int code;

@@ -35,8 +35,7 @@ public class Blog
     {
         Content = content;
     }
-
-
+    
     public Blog(Long id, String title, String content)
     {
         this.setId(id);

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/admin_Client/admin_Client.iml" filepath="$PROJECT_DIR$/admin_Client/admin_Client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/admin_Server/admin_Server.iml" filepath="$PROJECT_DIR$/admin_Server/admin_Server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springBootDemo37.iml" filepath="$PROJECT_DIR$/springBootDemo37.iml" />
+    </modules>
+  </component>
+</project>

@@ -27,7 +27,6 @@ public class FastDFSFile
         this.name = name;
         this.content = content;
         this.ext = ext;
-
     }
 
     public String getName()
